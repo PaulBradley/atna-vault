@@ -45,6 +45,18 @@ The application supports the following command line parameters.
 | parameter       | description                                                                       |
 | --------------- | --------------------------------------------------------------------------------- |
 | --store-locally | Instructs AV to store a copy of the messages on the local server as well as in S3 |
+| -bucketname     | AWS S3 bucket name to upload files to                                             |
+| -region         | AWS region that the target bucket lives in e.g. eu-west-2                         |
+
+
+## Environment Variables
+
+The application supports the following command line parameters.
+
+| variable  | description                                                                                |
+| ----------| ------------------------------------------------------------------------------------------ |
+| S3_KEY    | The access key for the IAM account which has has permissions to write to the target bucket |
+| S3_SECRET | The secret key for the IAM account which has has permissions to write to the target bucket |
 
 
 ## ATNA Message Types
