@@ -38,6 +38,15 @@ socat -lf socat.log
     fork system:/path/to/anta-vault/av &
 ```
 
+## Command Line Options
+
+The application supports the following command line parameters.
+
+| parameter       | description                                                                       |
+| --------------- | --------------------------------------------------------------------------------- |
+| --store-locally | Instructs AV to store a copy of the messages on the local server as well as in S3 |
+
+
 ## ATNA Message Types
 
 The following ATNA message types will be supported:
