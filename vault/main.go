@@ -23,6 +23,7 @@ func main() {
 		av.generateObjectName()
 		av.generateObjectPrefix()
 		av.gzipAuditMessage()
+		av.s3UploadFile()
 		if *av.storeLocally {
 			av.writeFileLocally()
 		}
@@ -48,6 +49,8 @@ func (v *vault) generateObjectPrefix() {
 
 func (v *vault) getCommandLineOptions() {
 	v.storeLocally = flag.Bool("store-locally", false, "save files locally")
+	v.aws_region = flag.String("region", "", "AWS region i.e. eu-west-2")
+	v.aws_s3_bucket = flag.String("bucketname", "", "AWS S3 bucket name")
 	flag.Parse()
 }
 

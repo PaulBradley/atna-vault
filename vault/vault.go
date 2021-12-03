@@ -17,4 +17,6 @@ type vault struct {
 	outputFilenamePrefix string         // holds the filename prefix
 	scanner              *bufio.Scanner // holds the buffered audit message
 	storeLocally         *bool          // true/false should the app store a copy of the file locally
+	aws_region           *string
+	aws_s3_bucket        *string
 }
