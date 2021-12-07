@@ -1,4 +1,4 @@
-![Architecture](/img/architecture.png?raw=true)
+![Architecture](/img/vault.png?raw=true)
 
 > noun: vault; a secure store where valuables are kept safe.
 
