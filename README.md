@@ -1,6 +1,10 @@
-# ATNA Vault
+![Architecture](/img/architecture.png?raw=true)
 
-ATNA Vault allows you to maintain a secure long-term archive for all your IHE audit messages.
+> noun: vault; a secure store where valuables are kept safe.
+
+# ATNA Audit Vault
+
+ATNA Audit Vault allows you to maintain a secure long-term backup/archive for all your IHE audit messages.
 
 IHE vendors who can provide "filter forward" functionally within their Audit Trail and Node Authentication sub-systems can forward copies of all audit messages to the vault.
 
