@@ -46,6 +46,15 @@ socat -lf socat.log
     fork system:/path/to/anta-vault/freeze &
 ```
 
+The `freeze` daemon can also been as a UDP listener like:
+
+``` bash
+socat -lf socat.dat
+    -u udp4-recvfrom:6514,
+    reuseport,
+    fork system:/path/to/anta-vault/freeze &
+```
+
 ### Command Line Options
 
 The `freeze` daemon supports the following command line parameters.
