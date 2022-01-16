@@ -3,13 +3,9 @@ package main
 import (
 	"bufio"
 	"flag"
-	"fmt"
 	"log"
 	"os"
 	"strings"
-	"time"
-
-	t "github.com/jeromer/syslogparser/rfc5424"
 )
 
 func main() {
@@ -54,41 +50,10 @@ func (v *vault) receiveTestMessage() {
 	}
 }
 
-func (v *vault) sysLogHeaderParse() {
-	// extract the syslog header from the audit message
-	start := strings.Index(v.auditMessage, `<`)
-	end := strings.Index(v.auditMessage, `<?xml`)
-	buffer := []byte(v.auditMessage[start : end-3])
-
-	p := t.NewParser(buffer)
-	v.err = p.Parse()
-	if v.err != nil {
-		log.Println("WARN:" + v.err.Error())
+func (v *vault) containsATNA() {
+	if strings.Contains(v.auditMessage, `<AuditMessage>`) {
+		v.isATNAmessage = true
+	} else {
+		v.isATNAmessage = false
 	}
-
-	for key, val := range p.Dump() {
-		switch key {
-		case `priority`:
-			v.sysLogPriority = val.(int)
-		case `timestamp`:
-			v.sysLogTimestamp = val.(time.Time)
-		case `hostname`:
-			v.sysLogHostName = val.(string)
-		case `app_name`:
-			v.sysLogApplication = val.(string)
-		case `facility`:
-			v.sysLogFacility = val.(int)
-		case `severity`:
-			v.syslogSeverity = val.(int)
-		}
-	}
-}
-
-func (v *vault) sysLogHeaderResults() {
-	fmt.Println(v.sysLogPriority)
-	fmt.Println(v.sysLogTimestamp)
-	fmt.Println(v.sysLogApplication)
-	fmt.Println(v.sysLogHostName)
-	fmt.Println(v.sysLogFacility)
-	fmt.Println(v.syslogSeverity)
 }

@@ -9,6 +9,7 @@ import (
 
 type vault struct {
 	auditMessage         string         // holds the plain text audit message
+	isATNAmessage        bool           // holds true/false if message contains an <AuditMessage> tag
 	err                  error          // holds the last error message
 	gzBuffer             bytes.Buffer   // hold the gzip version of the audit message
 	gzValid              bool           // true/false that the gzip worked
@@ -26,4 +27,5 @@ type vault struct {
 	sysLogApplication    string
 	sysLogFacility       int
 	syslogSeverity       int
+	sysLogComment        string
 }
